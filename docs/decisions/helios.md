@@ -1,3 +1,21 @@
+# Clearer controls, equal cards (22 Nov 2026)
+
+The user: unclear what to do, make the UX clearer and both cards one size. Left card is now "Try asking ·
+Click a question to see Helios answer it": four bordered button rows (question, use case, an arrow that turns
+solid on the open one, a thin rule along the open row's foot counting down 7s). Both cards are equal columns
+and stretch to the same height.
+
+---
+
+# Live demo on the right (22 Nov 2026, branch renaissance-accent)
+
+The user asked for the demo on the right "as in Dimash's version". The paper report sheet is replaced by the
+live Helios conversation in the product's own card (question, answer, the artifact, sources, the ask
+field), as on dimash-v2. The "Ask Helios" index on the left (now in the same product card as the chat, since the paper version stood out from the site) still turns every 7s; the
+landscape (bg-04) stays. The section below ("The report") is superseded on that point.
+
+---
+
 # The report (22 Nov 2026, branch renaissance-accent)
 
 The user said the block looked the same as the dialer above it (stage + tab row) and chose "отчёт-свиток".
