@@ -110,7 +110,7 @@ export function DialInstant() {
 
   return (
     <div ref={ref} className="gf-ds @container relative size-full select-none overflow-hidden">
-      <BgFrame seed={11}>
+      <BgFrame seed={11} src="/backgrounds/instant.webp">
         {/* Base: powder blue, lighter at the top left */}
         <div
           className="absolute inset-0"

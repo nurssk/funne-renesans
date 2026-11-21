@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 07: brand-teal mist, deep teal pooling in the lower-left, sea-glass and pale aqua rising to a soft light bloom top-right.
 export function Bg07() {
   return (
-    <BgFrame seed={51}>
+    <BgFrame seed={51} src="/backgrounds/bg-07.webp">
       {/* Base: pale aqua at the top fading to sea-glass, darker toward the lower-left. */}
       <div
         className="absolute inset-0"

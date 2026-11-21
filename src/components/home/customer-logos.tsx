@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 // MOCK CUSTOMERS. Every name and mark here is invented as a placeholder.
 // The handoff forbids real client names or logos without written approval, so replace
 // this list only with approved clients (ask Daniel for names, logo files and case studies).
-// Layout after cursor.com: one short line, then eight logos in one row of soft grey tiles (4 x 2 on
-// tablets, 2 x 4 on phones), each mark in its own (invented) brand colour. No case-study links until
+// Layout: one short line, then eight logos in one row (4 x 2 on tablets, 2 x 4 on phones), each mark painted
+// in ink on a scrap torn from a painting. The invented brand colours below are no longer shown. No case-study links until
 // there are real case studies.
 
 type Customer = { name: string; color: string; mark: ReactNode };
@@ -79,18 +79,40 @@ const customers: Customer[] = [
   },
 ];
 
+// Each mark is painted in ink on a scrap torn from a Renaissance painting (docs/decisions/hero.md, the site's
+// direction): sky, rose and teal drapery and the stone well from Perugino's Christ and the Woman of Samaria,
+// floor tiles from Bartolomeo di Giovanni, Constable's and Valenciennes's skies, the green ground of Tosini's
+// Portrait of a Lady. Lightened to a pale key so the ink reads; torn edge, paper core and shadow baked in
+// (public/art/scraps/*.webp, 416 x 268). Each sits a degree or two off square, as if laid down by hand.
+const scraps = ["sky", "rose", "teal", "stone", "tiles", "cloud", "azure", "green"];
+const tilt = [-1.6, 1.2, -0.8, 1.8, -1.3, 0.9, -1.9, 1.4];
+
 export function CustomerLogos() {
   return (
     <section aria-labelledby="customers-title" className="bg-canvas">
       <div className="frame px-3 pb-20 pt-10 sm:px-6 lg:px-10 lg:pb-24 lg:pt-12">
-        <h2 id="customers-title" className="text-balance text-center text-[15px] leading-[1.5] text-ink">
+        <h2 id="customers-title" className="text-balance text-center font-serif text-[19px] italic leading-[1.5] text-ink">
           Trusted by teams that sell through ads and sales calls
         </h2>
-        <ul className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-8">
-          {customers.map((c) => (
-            <li key={c.name} className="flex h-[84px] items-center justify-center rounded-[6px] bg-ink/[0.035] px-3 lg:h-[92px]" style={{ color: c.color }}>
+        <ul className="mt-8 grid grid-cols-2 gap-x-1 gap-y-3 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-0">
+          {customers.map((c, i) => (
+            <li
+              key={c.name}
+              className="relative flex aspect-[416/268] items-center justify-center text-[#2b241d]"
+              style={{ rotate: `${tilt[i % tilt.length]}deg` }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/art/scraps/${scraps[i % scraps.length]}.webp`}
+                alt=""
+                aria-hidden
+                loading="lazy"
+                width={416}
+                height={268}
+                className="absolute inset-0 size-full"
+              />
               <span className="sr-only">{c.name}</span>
-              <span aria-hidden className="flex scale-[0.8] items-center whitespace-nowrap sm:scale-[0.85] lg:scale-[0.7] xl:scale-[0.76]">
+              <span aria-hidden className="relative flex scale-[0.74] items-center whitespace-nowrap opacity-90 mix-blend-multiply sm:scale-[0.8] lg:scale-[0.62] xl:scale-[0.7]">
                 {c.mark}
               </span>
             </li>

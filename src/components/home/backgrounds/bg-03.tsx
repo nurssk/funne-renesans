@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 03: misty sea-blue/grey-teal field, bright haze in the upper middle, deeper blue-grey in the bottom-right corner.
 export function Bg03() {
   return (
-    <BgFrame seed={23}>
+    <BgFrame seed={23} src="/backgrounds/bg-03.webp">
       {/* Base: pale sea mist at the top settling into grey-teal at the bottom. */}
       <div
         className="absolute inset-0"

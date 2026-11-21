@@ -256,7 +256,7 @@ export function HeroDemo() {
       aria-label="The GoFunnel Command Center: ad spend, cash collected, return on cash and speed to lead, cash by day, the live dialer and creatives ranked by cash"
       className="gf-ds relative aspect-[4/3] w-full select-none overflow-hidden sm:aspect-[16/9]"
     >
-      <BgFrame seed={51}>
+      <BgFrame seed={51} src="/backgrounds/hero.webp">
         <div className="absolute inset-0" style={{ background: "linear-gradient(170deg, #e7eef3 0%, #eae6df 55%, #efdcc9 100%)" }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(55% 60% at 12% 18%, rgba(178, 205, 226, 0.75) 0%, rgba(178, 205, 226, 0) 70%)" }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(50% 55% at 92% 22%, rgba(196, 222, 222, 0.7) 0%, rgba(196, 222, 222, 0) 70%)" }} />

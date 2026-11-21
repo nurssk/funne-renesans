@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 02: sunny apricot and soft peach mist, pale cream light pouring from the top, a rose blush in the lower-right corner.
 export function Bg02() {
   return (
-    <BgFrame seed={16}>
+    <BgFrame seed={16} src="/backgrounds/bg-02.webp">
       {/* Base: cream at the top settling into warm apricot at the bottom */}
       <div
         className="absolute inset-0"

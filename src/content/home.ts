@@ -1,8 +1,12 @@
 // Home page copy. Source: gofunnel-website-copy.md (Home), shortened with emil-unslop-writing.
 // Button labels are fixed by the copy doc's button label set.
 
+// Hero (docs/decisions/hero.md, "Connect"): the headline is split across the fresco, over Adam and under
+// God's hand; the line under the fresco opens with `connects`.
 export const hero = {
-  headline: "The operating system for profitable growth",
+  saw: ["The ad", "they saw."],
+  paid: ["The money", "they paid."],
+  connects: "GoFunnel connects them.",
   description: "Know which ads bring in buyers, and call every new lead before anyone else does.",
   primary: { label: "Book a Call", href: "/book-a-call" },
   journeyLead: "One record per person,",

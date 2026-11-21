@@ -173,7 +173,7 @@ function useCadence() {
 
 function Field() {
   return (
-    <BgFrame seed={21}>
+    <BgFrame seed={21} src="/backgrounds/follow-ups.webp">
       {/* Base: apricot into warm peach, top-left to bottom-right */}
       <div
         className="absolute inset-0"

@@ -83,7 +83,7 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
 
 function Field() {
   return (
-    <BgFrame seed={23}>
+    <BgFrame seed={23} src="/backgrounds/local-numbers.webp">
       {/* Base: sea-mist green into pale teal, top-left to bottom-right */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, #cfe5d8 0%, #b6dad2 50%, #98c6c2 100%)" }} />
       {/* Pale teal bloom, top right */}

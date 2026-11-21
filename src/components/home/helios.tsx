@@ -153,7 +153,7 @@ export function Helios() {
         <div className="frame">
           {/* The product: a Helios conversation on its own grainy field. */}
           <div className="gf-ds relative overflow-hidden px-4 py-12 sm:px-8 lg:py-16">
-            <BgFrame seed={41}>
+            <BgFrame seed={41} src="/backgrounds/helios.webp">
               <div className="absolute inset-0" style={{ background: "linear-gradient(165deg, #3d5d63 0%, #2a444a 45%, #1e3035 100%)" }} />
               <div className="absolute inset-0" style={{ background: "radial-gradient(60% 55% at 18% 12%, rgba(244, 228, 198, 0.55) 0%, rgba(244, 228, 198, 0) 70%)" }} />
               <div className="absolute inset-0" style={{ background: "radial-gradient(55% 60% at 88% 30%, rgba(96, 164, 170, 0.55) 0%, rgba(96, 164, 170, 0) 70%)" }} />

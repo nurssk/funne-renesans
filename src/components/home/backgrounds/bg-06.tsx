@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 06: a gentle pink-and-lilac blush mesh, rose washes low-left and right, pale lilac upper-left and low-right, a soft white bloom near the top and a calmer centre.
 export function Bg06() {
   return (
-    <BgFrame seed={44}>
+    <BgFrame seed={44} src="/backgrounds/bg-06.webp">
       {/* Base: warm blush drifting into pale lilac */}
       <div
         className="absolute inset-0"

@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 04 "Dusk": slate and grey-blue mist at the top sinking into deep indigo and navy, a faint violet streak on the diagonal.
 export function Bg04() {
   return (
-    <BgFrame seed={30}>
+    <BgFrame seed={30} src="/backgrounds/bg-04.webp">
       {/* Base: top-to-bottom dusk ramp */}
       <div
         className="absolute inset-0"

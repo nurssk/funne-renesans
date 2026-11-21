@@ -143,7 +143,7 @@ export function DialWaterfall() {
   return (
     <div ref={ref} className="gf-ds relative isolate size-full select-none overflow-hidden">
       <style>{RING_CSS}</style>
-      <BgFrame seed={19}>
+      <BgFrame seed={19} src="/backgrounds/waterfall.webp">
         {/* Base: pale periwinkle into soft lilac, top-left to bottom-right */}
         <div
           className="absolute inset-0"

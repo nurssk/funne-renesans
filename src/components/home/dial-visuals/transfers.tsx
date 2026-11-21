@@ -121,7 +121,7 @@ function reveal(shown: boolean, from = "translateY(4px)"): CSSProperties {
 
 function Field() {
   return (
-    <BgFrame seed={23}>
+    <BgFrame seed={23} src="/backgrounds/transfers.webp">
       {/* Base: warm sand drifting into soft rose, top-left to bottom-right */}
       <div
         className="absolute inset-0"

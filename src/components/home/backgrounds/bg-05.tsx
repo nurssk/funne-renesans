@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 05: warm sunset mesh — ember red and burnt orange at the edges, gold bloom top right, a dusk blue-violet sliver along the left edge, softer peach behind the table.
 export function Bg05() {
   return (
-    <BgFrame seed={37}>
+    <BgFrame seed={37} src="/backgrounds/bg-05.webp">
       {/* Base: burnt orange into ember red, top-left to bottom-right */}
       <div
         className="absolute inset-0"

@@ -3,7 +3,7 @@ import { BgFrame } from "./bg-frame";
 // Step 01: cool sky-blue haze, powder blue misting in from the top-left, a soft near-white bloom behind the centre, dusty steel blue pooling along the bottom.
 export function Bg01() {
   return (
-    <BgFrame seed={9}>
+    <BgFrame seed={9} src="/backgrounds/bg-01.webp">
       {/* Base: pale powder blue at the top falling to a dusty blue-grey at the bottom. */}
       <div
         className="absolute inset-0"

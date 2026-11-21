@@ -120,8 +120,8 @@ export function FollowProspect() {
                 return (
                   <div
                     key={s.title}
-                    className={`absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-200 ease-out motion-reduce:transition-none ${
-                      active === i ? "opacity-100" : "pointer-events-none opacity-0"
+                    className={`absolute inset-0 flex items-center justify-center p-6 transition-[opacity,visibility] duration-200 ease-out motion-reduce:transition-none ${
+                      active === i ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
                     }`}
                   >
                     {/* Each step sits on its own grainy colour field; it crossfades with the layer. */}
