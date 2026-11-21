@@ -1,3 +1,27 @@
+# Direction check, 22 Nov 2026: Renaissance as the accent, not the theme
+
+The full Renaissance version (sky, hand-painted journey, logos on scraps, no product above the fold) is saved
+on branch `renaissance-full` (commit 2ce5927). Work continues on `renaissance-accent`.
+
+Why pulled back: the client's references use classical art as one bold image in the hero and keep the rest
+clean, modern and product-forward. The full version lost the product from the first screens, said nothing
+about what GoFunnel does under the headline, and split the page into two styles.
+
+- Hero keeps the painted sky, the headline and the journey path. The line "GoFunnel connects them." + the
+  description is back under the headline.
+- The product is back straight under the sky: the Command Center (`hero-demo.tsx`) in the framed slot.
+- Customer logos stay on torn scraps (docs/decisions/customers.md).
+- "Follow one lead" is no longer pinned: seven steps down the page, visual and caption side by side and
+  alternating from 1024px, each interface playing its entrance once when it is a third on screen. The client
+  said the pinned, scroll-swapped stage hurt skimming (docs/decisions/prospect.md describes the old stage).
+- Footer: the large watermark symbol is gone and the spacing is tighter, 537px tall at 1440 instead of about
+  950 (client: "unnecessarily massive").
+- Dialer, Helios and Integrations sections are unchanged.
+- Open: whether the hand-painted journey stays is the client's call; it tells the same seven steps as
+  "Follow one lead".
+
+---
+
 # Home hero: "Connect", cloud style (21 Nov 2026, current)
 
 Replaces the Centered hero and the Command Center demo below (client feedback: not a fan of the above the
