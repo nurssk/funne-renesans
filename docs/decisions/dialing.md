@@ -1,3 +1,19 @@
+# One stage (22 Nov 2026, branch renaissance-accent)
+
+Asked for by the user: redo the dialer block; chose "one big stage".
+
+- `src/components/home/dialing.tsx`: the header with Book a Call, then one wide stage (480px tall at desktop,
+  edge to edge of the frame) on its painted field showing one capability's live visual at 1.4x (CSS zoom; 1.2x
+  on tablets, 1x on phones), then the five capabilities as a row of tabs: a roman numeral in serif italic, the
+  lead phrase, the rest in grey. Replaces the grid of two wide and three narrow cells with arrow links.
+- The row plays on its own: the selected tab's ink rule fills along its top over 6s, then the next capability
+  takes over, looping. Hovering the stage or the row pauses it; a click picks a capability and restarts its 6s.
+  It runs only while the section is at least 35% on screen. The visual is remounted on each change, so its own
+  loop starts from the top, and fades in (280ms). Reduced motion: a full rule and no auto-advance.
+- The per-cell "learn more" arrows are gone; Book a Call stays in the header.
+
+---
+
 # Dialing Infrastructure, decided from /proto/dialing (18 Nov 2026, three rounds)
 
 The home section for the dialer, between Follow one prospect and integrations.

@@ -17,3 +17,14 @@ each mark in its own brand colour.
 - The line above is serif italic.
 - The customers are still mock (see the note at the top of `customer-logos.tsx`).
 - The user offered an image generator for this; none is available here, so the scraps are real paintings.
+- Hover (22 Nov, the user: "edges change and the angle too"): the scrap is picked up: it lifts 6px, swings to the
+  opposite tilt (1.6x its resting angle, the other way), bends in 3D (rotateX 7deg, rotateY -9deg, perspective
+  600px) so its torn edges shift and catch the light, scales to 1.05 and its shadow deepens; 420ms out, back on
+  leave. Fine pointers only; no transition under reduced motion. Styles under `.scrap` in `globals.css`.
+- The torn edge itself changes on hover (the user): each scrap has a second picture, `public/art/scraps/*-b.webp`,
+  the same painted patch (taken from inside the first tear, scaled back up) torn again with a different seed;
+  it crossfades in over 320ms as the scrap is picked up, and back on leave.
+- Bigger, in one row, inside the frame (the user): from 768px the eight scraps run in a single row that fills the
+  frame (16px side padding, 8px gaps), about 150px each at 1440; the marks scale with them. A row breaking out of
+  the frame to the full window was tried and reverted (it ran past the frame lines and got cut at the edges). Below 768px: two rows of four, then four rows of two on phones. (Two rows of four on desktop
+  was tried in between and reverted.)

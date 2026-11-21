@@ -18,7 +18,9 @@ import { stepBackgrounds } from "@/components/home/backgrounds";
 // entrance once, the first time it is a third on screen. Interfaces are built on the GoFunnel design system
 // (.gf-ds), one component per step.
 
-const num = (i: number) => String(i + 1).padStart(2, "0");
+// Steps are numbered in roman numerals, serif, like the journey path in the hero.
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const num = (i: number) => ROMAN[i] ?? String(i + 1);
 
 // One interface per step, in order.
 const interfaces: ((props: { active: boolean; animate?: boolean }) => React.ReactNode)[] = [
@@ -96,8 +98,8 @@ export function FollowProspect() {
                   <div aria-hidden className="gf-ds stage aspect-[4/3] rounded-[20px] border border-line" />
                 )}
                 <div className="mt-5 lg:mt-0">
-                  <span className="block text-[13px] tabular-nums text-ink-3">
-                    {num(i)} <span className="hidden lg:inline">/ {num(steps.length - 1)}</span>
+                  <span className="block font-serif text-[15px] italic tracking-[0.08em] text-ink-3">
+                    {num(i)} <span className="hidden lg:inline">· {num(steps.length - 1)}</span>
                   </span>
                   <h3 className="mt-1 text-[20px] font-medium leading-[1.25] tracking-[-0.01em] text-ink lg:mt-2 lg:text-[26px]">{s.title}</h3>
                   <p className="mt-2 max-w-[52ch] text-pretty text-[16px] leading-[1.55] text-ink-2 lg:mt-3 lg:text-[17px]">{s.text}</p>

@@ -200,3 +200,52 @@ html[data-intro-seen] :is(.intro-rise, .intro-fade, .intro-draw, .intro-pop) { a
   .footer-logo-rest { display: inline; }
   .footer-logo-light { transition: none; }
 }
+
+/* Logo scraps (customer-logos.tsx): laid a degree or two off square; on hover the scrap is picked up, it lifts,
+   swings the other way, bends a little in 3D (so its torn edges shift) and its shadow deepens. */
+.scrap {
+  rotate: var(--tilt);
+  transform: perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1);
+  transition: rotate 420ms cubic-bezier(0.23, 1, 0.32, 1), transform 420ms cubic-bezier(0.23, 1, 0.32, 1), filter 420ms ease-out;
+  filter: drop-shadow(0 0 0 rgba(40, 30, 20, 0));
+}
+@media (hover: hover) and (pointer: fine) {
+  .scrap:hover {
+    rotate: var(--lift);
+    transform: perspective(600px) rotateX(7deg) rotateY(-9deg) translateY(-6px) scale(1.05);
+    filter: drop-shadow(0 14px 14px rgba(40, 30, 20, 0.22));
+    z-index: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scrap { transition: none; }
+}
+/* The scrap's second tear crossfades in on hover, so the edge itself changes. */
+.scrap-a, .scrap-b { transition: opacity 320ms ease-out; }
+.scrap-b { opacity: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .scrap:hover .scrap-a { opacity: 0; }
+  .scrap:hover .scrap-b { opacity: 1; }
+}
+
+/* Dialer, one stage (dialing.tsx): the selected capability's ink rule fills over 6s, then the next takes over;
+   each new visual fades in. Reduced motion: a full rule, no auto-advance, no fade. */
+@keyframes dial-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.dial-progress { transform-origin: left; animation: dial-progress 6s linear forwards; }
+@keyframes dial-stage-in { from { opacity: 0; } to { opacity: 1; } }
+.dial-stage-in { animation: dial-stage-in 280ms ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .dial-progress { animation: none; transform: scaleX(1); }
+  .dial-stage-in { animation: none; }
+}
+
+/* Helios, the report (helios.tsx): the open index entry's ink rule fills downward over 7s, then the page
+   turns; each new page rises in. Reduced motion: a full rule, no auto-turn, no rise. */
+@keyframes helios-turn { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.helios-turn { transform-origin: top; animation: helios-turn 7s linear forwards; }
+@keyframes helios-page { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.helios-page { animation: helios-page 320ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .helios-turn { animation: none; transform: scaleY(1); }
+  .helios-page { animation: none; }
+}

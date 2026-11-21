@@ -7,9 +7,13 @@ Why pulled back: the client's references use classical art as one bold image in 
 clean, modern and product-forward. The full version lost the product from the first screens, said nothing
 about what GoFunnel does under the headline, and split the page into two styles.
 
-- Hero keeps the painted sky, the headline and the journey path. The line "GoFunnel connects them." + the
-  description is back under the headline.
-- The product is back straight under the sky: the Command Center (`hero-demo.tsx`) in the framed slot.
+- Hero keeps the painted sky and the journey path. Headline (22 Nov, the user): "We walk the whole path / with
+  you." It replaced "The ad they saw. / The money they paid." and the line under it ("GoFunnel connects them.
+  Know which ads...", then briefly "We walk the whole path with you, from the first ad to the last payment."),
+  Under it, because the headline alone did not say what the product is (the user): "GoFunnel tracks every lead
+  from the ad they saw to the money they paid, and calls them before anyone else does." Then Book a Call.
+- The Command Center (`hero-demo.tsx`) was put back under the sky, then removed again by the user (22 Nov);
+  the customer logos follow the sky directly. The file stays in the repo.
 - Customer logos stay on torn scraps (docs/decisions/customers.md).
 - "Follow one lead" is no longer pinned: seven steps down the page, visual and caption side by side and
   alternating from 1024px, each interface playing its entrance once when it is a third on screen. The client

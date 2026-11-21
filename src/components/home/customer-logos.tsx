@@ -84,22 +84,25 @@ const customers: Customer[] = [
 // floor tiles from Bartolomeo di Giovanni, Constable's and Valenciennes's skies, the green ground of Tosini's
 // Portrait of a Lady. Lightened to a pale key so the ink reads; torn edge, paper core and shadow baked in
 // (public/art/scraps/*.webp, 416 x 268). Each sits a degree or two off square, as if laid down by hand.
+// Hover (fine pointers): the scrap is picked up, it lifts, swings the other way a few degrees and bends in 3D so
+// its torn edges catch the light differently, and the torn edge itself changes: a second picture of the same
+// scrap with a different tear (*-b.webp) crossfades in. The shadow deepens. Styles in globals.css (.scrap).
 const scraps = ["sky", "rose", "teal", "stone", "tiles", "cloud", "azure", "green"];
 const tilt = [-1.6, 1.2, -0.8, 1.8, -1.3, 0.9, -1.9, 1.4];
 
 export function CustomerLogos() {
   return (
-    <section aria-labelledby="customers-title" className="bg-canvas">
-      <div className="frame px-3 pb-20 pt-10 sm:px-6 lg:px-10 lg:pb-24 lg:pt-12">
+    <section aria-labelledby="customers-title" className="overflow-x-clip bg-canvas">
+      <div className="frame px-3 pb-20 pt-10 sm:px-6 md:px-4 lg:pb-24 lg:pt-12">
         <h2 id="customers-title" className="text-balance text-center font-serif text-[19px] italic leading-[1.5] text-ink">
           Trusted by teams that sell through ads and sales calls
         </h2>
-        <ul className="mt-8 grid grid-cols-2 gap-x-1 gap-y-3 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-0">
+        <ul className="mt-10 grid grid-cols-2 gap-x-2 gap-y-4 sm:grid-cols-4 sm:gap-x-6 sm:gap-y-8 md:grid-cols-8 md:gap-x-2 md:gap-y-0">
           {customers.map((c, i) => (
             <li
               key={c.name}
-              className="relative flex aspect-[416/268] items-center justify-center text-[#2b241d]"
-              style={{ rotate: `${tilt[i % tilt.length]}deg` }}
+              className="scrap relative flex aspect-[416/268] items-center justify-center text-[#2b241d]"
+              style={{ ["--tilt" as string]: `${tilt[i % tilt.length]}deg`, ["--lift" as string]: `${-tilt[i % tilt.length] * 1.6}deg` }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -109,10 +112,21 @@ export function CustomerLogos() {
                 loading="lazy"
                 width={416}
                 height={268}
-                className="absolute inset-0 size-full"
+                className="scrap-a absolute inset-0 size-full"
+              />
+              {/* The same scrap torn again, a different edge: it fades in as the scrap is picked up. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/art/scraps/${scraps[i % scraps.length]}-b.webp`}
+                alt=""
+                aria-hidden
+                loading="lazy"
+                width={416}
+                height={268}
+                className="scrap-b absolute inset-0 size-full"
               />
               <span className="sr-only">{c.name}</span>
-              <span aria-hidden className="relative flex scale-[0.74] items-center whitespace-nowrap opacity-90 mix-blend-multiply sm:scale-[0.8] lg:scale-[0.62] xl:scale-[0.7]">
+              <span aria-hidden className="relative flex scale-[0.74] items-center whitespace-nowrap opacity-90 mix-blend-multiply sm:scale-[0.85] md:scale-[0.48] lg:scale-[0.6] xl:scale-[0.72]">
                 {c.mark}
               </span>
             </li>

@@ -1,19 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { integrations, type IntegrationTile } from "@/content/integrations";
+import { BgFrame } from "@/components/home/backgrounds/bg-frame";
 
 // Integrations, after joindex.com: two rows of app-icon tiles with the GoFunnel tile in the middle of the
 // lower row, then the headline and a link to the full list. The tile rows fade at both ends
 // (mask), so on narrow screens the outer tiles are cut softly instead of wrapping. The bottom padding
 // is room for the GoFunnel icon's shadow: the mask clips anything outside the box, which would cut the
 // shadow off in a straight line.
+// Renaissance pass (docs/decisions/renaissance-sections.md): the two rows sit on a painted sky (bg-02,
+// Valenciennes' clouds, drifting like the other fields), edge to edge of the frame between hairlines, so the
+// tools read as hung in the same sky as the hero; the headline and link stay on the paper below.
 export function Integrations() {
   const { headline, cta, top, bottomLeft, bottomRight } = integrations;
 
   return (
     <section aria-labelledby="integrations-title" className="bg-canvas">
-      <div className="frame px-6 pb-24 lg:px-10 lg:pb-32">
-        <div className="mx-auto max-w-[1120px] overflow-hidden px-1 pb-12 pt-2 sm:pb-14 [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]">
+      <div className="frame pb-24 pt-16 lg:pb-32 lg:pt-24">
+        <div className="relative overflow-hidden border-y border-line px-6 py-14 sm:py-20 lg:px-10">
+        <BgFrame seed={17} src="/backgrounds/bg-02.webp">
+          {null}
+        </BgFrame>
+        <div className="relative mx-auto max-w-[1120px] overflow-hidden px-1 pb-6 pt-2 [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]">
           <ul aria-label="Some of the tools GoFunnel connects to" className="flex flex-col items-center gap-4 sm:gap-5">
             <li className="flex shrink-0 justify-center gap-4 sm:gap-6">
               {top.map((t) => (
@@ -31,8 +39,9 @@ export function Integrations() {
             </li>
           </ul>
         </div>
+        </div>
 
-        <div className="flex flex-col items-center text-center">
+        <div className="mt-14 flex flex-col items-center px-6 text-center lg:mt-16 lg:px-10">
           <h2
             id="integrations-title"
             className="max-w-[20ch] text-balance font-serif text-[32px] leading-[1.1] tracking-[-0.01em] text-ink sm:text-[44px]"

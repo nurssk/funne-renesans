@@ -1,3 +1,20 @@
+# The report (22 Nov 2026, branch renaissance-accent)
+
+The user said the block looked the same as the dialer above it (stage + tab row) and chose "отчёт-свиток".
+
+- One painted landscape (bg-04, the Baptism's tree and hills) edge to edge of the frame, with a sheet of
+  paper on it: Helios's answer as a short report. Header "Helios · Report III" and a date in small caps, the
+  owner's question as a serif title, the answer as body, then a ledger (serif figures, dotted leaders,
+  verdicts in green and red serif italic), signed "Helios" with its sources.
+- Beside the sheet (under it on phones) an index on paper, "Ask Helios": the four questions in serif,
+  numbered I to IV, each with its use case in grey. Pages turn on their own every 7s; a thin ink rule fills
+  down the open entry; hover or off screen pauses; a click opens that page and restarts its time. New pages
+  rise in over 320ms. Reduced motion: no auto-turn.
+- Replaces the chat card on the dark olive field and the four-cell row under it. The chat input
+  ("Ask Helios about your business") is gone; the sheet is the product's answer.
+
+---
+
 # Helios, decided from /proto/helios (18 Nov 2026, two rounds)
 
 The home section for Helios, the AI, between the dialer section and integrations.
