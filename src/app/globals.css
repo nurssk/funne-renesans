@@ -1,26 +1,202 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Brand fonts (docs/fonts.md): Feature Display (Commercial Type) for headlines and Aeonik Pro
+   (CoType Foundry) for descriptions and UI, matching joindex.com. Both are paid. These are the foundries'
+   TRIAL files, fine for a demo only: swap in licensed .woff2 files before launch. */
+@font-face {
+  font-family: "Feature Display";
+  src: url("/fonts/feature-display/FeatureDisplay-Light-Trial.otf") format("opentype");
+  font-weight: 380;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Feature Display";
+  src: url("/fonts/feature-display/FeatureDisplay-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/aeonik-pro/AeonikProTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/aeonik-pro/AeonikProTRIAL-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* GoFunnel teal (gofunnel-design-system.vercel.app) on conversion.ai-style warm neutrals.
+   Decided in docs/decisions/hero.md. */
+@theme {
+  --color-teal-50: #f6fafb;
+  --color-teal-100: #ecf6f7;
+  --color-teal-200: #e4f4f6;
+  --color-teal-300: #b8dee4;
+  --color-teal-400: #86c0c9;
+  --color-teal-500: #5d9ba3;
+  --color-teal-600: #357884;
+  --color-teal-700: #295f68;
+  --color-teal-800: #1f454c;
+  --color-teal-900: #142e33;
+
+  --color-canvas: #faf9f7;
+  --color-canvas-2: #fdfcfb;
+  --color-ink: #1a1a19;
+  --color-ink-2: #6b6a66;
+  --color-ink-3: #8f8e89;
+  --color-line: #e3e2de;
+
+  --font-sans: "Aeonik Pro", var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Feature Display", var(--font-newsreader), Georgia, "Times New Roman", serif;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-synthesis: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-teal-300);
+  color: var(--color-ink);
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 34px; /* conversion.ai's nav button: 34px tall, 16px sides, 14px text */
+    padding-inline: 16px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+    transition: background-color 150ms ease-out, border-color 150ms ease-out, transform 120ms ease-out;
+  }
+  /* The larger size for page CTAs (hero, section headers, footer), after conversion.ai's: 42px, 20px sides. */
+  .btn-lg {
+    height: 42px;
+    padding-inline: 20px;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn:focus-visible { outline: 2px solid var(--color-teal-600); outline-offset: 2px; }
+
+  /* Glossy teal pill, after conversion.ai's primary button */
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(180deg, #3f8793 0%, var(--color-teal-600) 55%, #2c6a74 100%);
+    border-color: rgb(255 255 255 / 0.15);
+    box-shadow:
+      inset 0 0 3px rgb(255 255 255 / 0.4),
+      inset 0 0 14px rgb(255 255 255 / 0.22),
+      0 1px 2px rgb(20 46 51 / 0.25),
+      0 0 0 1px rgb(31 69 76 / 0.55);
+  }
+  .btn-primary:hover { background: linear-gradient(180deg, #3a7e89 0%, var(--color-teal-700) 60%, #24575f 100%); }
+
+  .btn-secondary {
+    color: var(--color-ink);
+    background: #fff;
+    border-color: var(--color-line);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  }
+  .btn-secondary:hover { background: var(--color-canvas); }
+
+  .btn .arrow { transition: transform 150ms ease-out; }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  /* Hairline frame around page content */
+  .frame {
+    max-width: 1280px;
+    margin-inline: auto;
+    border-inline: 1px solid var(--color-line);
+  }
+  @media (max-width: 1320px) {
+    .frame { border-inline-color: transparent; }
+  }
+}
+
+/* Hero intro: plays once per session. layout.tsx sets data-intro-seen before first paint on repeat views. */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+
+.intro-rise { animation: rise 700ms var(--ease-out-strong) both; animation-delay: var(--delay, 0ms); }
+.intro-fade { animation: fade-in 900ms ease-out both; animation-delay: var(--delay, 0ms); }
+.intro-draw { transform-origin: left; animation: draw 1600ms var(--ease-out-strong) both; animation-delay: var(--delay, 0ms); }
+.intro-pop { animation: pop 400ms var(--ease-out-strong) both; animation-delay: var(--delay, 0ms); }
+
+html[data-intro-seen] :is(.intro-rise, .intro-fade, .intro-draw, .intro-pop) { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.intro-rise, .intro-fade, .intro-draw, .intro-pop) { animation: none; }
+}
+
+/* Nav dropdown panels (docs/decisions/nav.md): enter 180ms strong ease-out, exit 120ms ease-in. */
+.nav-panel {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px) scale(0.985);
+  transform-origin: top center;
+  transition: opacity 120ms ease-in, transform 120ms ease-in, visibility 0s linear 120ms;
+}
+.nav-panel[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 180ms cubic-bezier(0.32, 0.72, 0, 1), transform 180ms cubic-bezier(0.32, 0.72, 0, 1), visibility 0s;
+}
+.nav-panel[data-instant] { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nav-panel, .nav-panel[data-open] { transition: none; transform: none; }
+}
+
+/* Footer logo (docs/decisions/footer.md, "Footer logo"): a 1px grey outline. A teal copy lies over it,
+   masked to a soft light that footer-logo.tsx moves with the cursor. In fast, out slower. */
+.footer-logo { position: relative; }
+.footer-logo-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.footer-logo-line path {
+  fill: none;
+  stroke: color-mix(in oklch, var(--color-ink) 34%, var(--color-canvas));
+  stroke-width: 1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* The teal stroke covers the grey outline under filled shapes. */
+.footer-logo-ink path { stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.footer-logo-light {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 360ms ease-out;
+}
+.footer-logo[data-on] .footer-logo-light { opacity: 1; transition-duration: 160ms; }
+/* No cursor (touch) or reduced motion: no light. The symbol alone is teal, so the logo still looks finished. */
+.footer-logo-rest { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .footer-logo-rest { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo-rest { display: inline; }
+  .footer-logo-light { transition: none; }
 }

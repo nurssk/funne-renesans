@@ -1,0 +1,292 @@
+/* tokens.css — GoFunnel Design System
+   Generated from the Figma variable spec (Primitives + Semantic collections).
+   Do not edit by hand — regenerate from Figma.
+
+   Spec v3. The chart palette is settled and is now part of this file; it was
+   held out while it was still under discussion with the client.
+
+   This file carries every primitive step listed in the spec's ramps, not only
+   the steps a semantic token happens to alias today, so a designer reaching for
+   brand/100 finds it here. Elevation and the per-style typography attributes
+   are included for the same reason: the spec documents them, and the style
+   guide reads its live values from this file. */
+
+.gf-ds {
+  /* ============================================================
+     PRIMITIVES — brand (hero / accent)
+     ============================================================ */
+  --color-brand-50: #f6fafb;
+  --color-brand-100: #ecf6f7;
+  --color-brand-200: #e4f4f6;
+  --color-brand-300: #b8dee4;
+  --color-brand-400: #86c0c9;
+  --color-brand-500: #5d9ba3;
+  --color-brand-600: #357884;
+  --color-brand-700: #295f68;
+  --color-brand-800: #1f454c;
+  --color-brand-900: #142e33;
+
+  /* PRIMITIVES — grey (neutrals) */
+  --color-grey-0: #ffffff;
+  --color-grey-50: #fafafa;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #ebebeb;
+  --color-grey-300: #d9dcdd;
+  --color-grey-400: #b4b8bb;
+  --color-grey-500: #8a8f93;
+  --color-grey-600: #6b7075;
+  --color-grey-700: #4b4f52;
+  --color-grey-800: #303335;
+  --color-grey-900: #1a1c1d;
+  --color-grey-950: #0a0a0a;
+
+  /* PRIMITIVES — signals: green */
+  --color-green-50: #f6fbf7;
+  --color-green-100: #ecf7ee;
+  --color-green-200: #e4f6e6;
+  --color-green-300: #b8e6be;
+  --color-green-400: #86ce8f;
+  --color-green-500: #5da365;
+  --color-green-600: #1f7a4d;
+  --color-green-700: #175f3c;
+  --color-green-800: #12452c;
+  --color-green-900: #0c2e1d;
+
+  /* PRIMITIVES — signals: red */
+  --color-red-50: #fbf7f6;
+  --color-red-100: #f7edec;
+  --color-red-200: #f6e6e4;
+  --color-red-300: #e6c0b8;
+  --color-red-400: #ce9686;
+  --color-red-500: #a3655d;
+  --color-red-600: #b23b3b;
+  --color-red-700: #8f2e2e;
+  --color-red-800: #6b2222;
+  --color-red-900: #481717;
+
+  /* PRIMITIVES — signals: amber */
+  --color-amber-50: #fcfaf6;
+  --color-amber-100: #faf6ec;
+  --color-amber-200: #f6f1e4;
+  --color-amber-300: #e6d9bc;
+  --color-amber-400: #d1bc8e;
+  --color-amber-500: #a38855;
+  --color-amber-600: #a15c1f;
+  --color-amber-700: #7f4817;
+  --color-amber-800: #5f3711;
+  --color-amber-900: #40250c;
+
+  /* ============================================================
+     SEMANTIC — mode: light (only mode defined at this phase)
+     ============================================================ */
+
+  /* Semantic — content
+     secondary and tertiary are an opacity of black rather than a fixed hex, so
+     they hold up over both surfaces (grey/50 and grey/100). */
+  --color-content-primary: var(--color-grey-950);
+  --color-content-secondary: rgba(10, 10, 10, 0.60);
+  --color-content-tertiary: rgba(10, 10, 10, 0.45);
+  --color-content-disabled: rgba(10, 10, 10, 0.30);
+  --color-content-inverse: var(--color-grey-50);
+  --color-content-accent: var(--color-brand-600);
+  /* The fifth tag pair. The primitive has always described brand/500 as the
+     accent tag foreground; only the semantic alias was missing. */
+  --color-content-accent-subtle: var(--color-brand-500);
+  --color-content-positive: var(--color-green-600);
+  --color-content-positive-subtle: var(--color-green-500);
+  --color-content-negative: var(--color-red-600);
+  --color-content-negative-subtle: var(--color-red-500);
+  --color-content-attention: var(--color-amber-600);
+  --color-content-attention-subtle: var(--color-amber-500);
+  --color-content-neutral-subtle: var(--color-grey-500);
+
+  /* Semantic — background */
+  --color-background-system: var(--color-grey-50);
+  --color-background-surface: var(--color-grey-100);
+  --color-background-surface-alpha: rgba(10, 10, 10, 0.06);
+  --color-background-accent-subtle: var(--color-brand-200);
+  --color-background-positive-subtle: var(--color-green-200);
+  --color-background-negative-subtle: var(--color-red-200);
+  --color-background-attention-subtle: var(--color-amber-200);
+  --color-background-neutral-subtle: var(--color-grey-200);
+
+  /* Semantic — border */
+  --color-border-default: rgba(10, 10, 10, 0.10);
+  --color-border-focus: var(--color-brand-600);
+  --color-border-negative: var(--color-red-600);
+
+  /* Semantic — button */
+  --color-button-primary: var(--color-brand-600);
+  --color-button-primary-hover: var(--color-brand-700);
+  --color-button-primary-active: var(--color-brand-800);
+  --color-button-secondary-border: var(--color-border-default);
+  --color-button-secondary-fill: rgba(250, 250, 250, 0);
+  --color-button-secondary-fill-hover: var(--color-grey-100);
+  --color-button-secondary-fill-active: var(--color-grey-200);
+  --color-button-tertiary: var(--color-grey-100);
+  --color-button-tertiary-hover: var(--color-background-surface-alpha);
+  --color-button-tertiary-border: var(--color-border-default);
+  --color-button-destructive: var(--color-red-600);
+  --color-button-destructive-hover: var(--color-red-700);
+  --color-button-destructive-active: var(--color-red-800);
+  --color-button-disabled-fill: var(--color-grey-200);
+  --color-button-disabled-text: var(--color-grey-400);
+
+  /* ============================================================
+     CHART PALETTE
+     ============================================================ */
+
+  /* Categorical split — donut, multi-series bar. Three brand tints then two
+     greys; the largest share takes the most intense step. */
+  --color-chart-series-1: var(--color-brand-500);
+  --color-chart-series-2: var(--color-brand-400);
+  --color-chart-series-3: var(--color-brand-300);
+  --color-chart-series-4: var(--color-grey-300);
+  --color-chart-series-5: var(--color-grey-200);
+
+  /* Single line chart (dashboard KPI cards) */
+  --color-chart-positive: var(--color-green-600);
+  --color-chart-negative: var(--color-red-600);
+  --color-chart-line-current: var(--color-chart-series-1);
+  --color-chart-line-previous: var(--color-chart-series-3);
+  --color-chart-projected: var(--color-chart-series-2);
+  --color-chart-benchmark: var(--color-chart-series-4);
+  --color-chart-line-current-fill: linear-gradient(
+    to bottom,
+    var(--color-brand-200) 0%,
+    rgba(228, 244, 246, 0) 100%
+  );
+
+  /* Chart chrome.
+     The tokens are chart/chrome/tooltip-bg and chart/chrome/tooltip-border, so
+     the custom properties carry the chrome segment too: the spec's own rule is
+     that names match 1:1 between Figma and code, and the abbreviated export
+     block in the spec drops it. */
+  --color-chart-chrome-tooltip-bg: var(--color-background-system);
+  --color-chart-chrome-tooltip-border: var(--color-border-default);
+
+  /* ============================================================
+     SPACING
+     ============================================================ */
+  --size-1: 1px;
+  --size-2: 2px;
+  --size-4: 4px;
+  --size-6: 6px;
+  --size-8: 8px;
+  --size-12: 12px;
+  --size-16: 16px;
+  --size-24: 24px;
+  --space-xxsmall: var(--size-1);
+  --space-xsmall: var(--size-2);
+  --space-small: var(--size-4);
+  --space-medium: var(--size-6);
+  --space-large: var(--size-8);
+  --space-xlarge: var(--size-12);
+  --space-xxlarge: var(--size-16);
+  --space-xxxlarge: var(--size-24);
+
+  /* RADIUS */
+  --radius-xsmall: 4px;
+  --radius-small: 6px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+  --radius-full: 1000px;
+
+  /* ELEVATION (effect styles) */
+  --elevation-0: none;
+  --elevation-1: 0 2px 8px rgba(10, 10, 10, 0.06);
+  --elevation-2: 0 8px 24px rgba(10, 10, 10, 0.12);
+
+  /* CONTROL SIZES */
+  --control-height-sm: 24px;
+  --control-height-md: 32px;
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-family-base: 'STK Bureau Sans', system-ui, Helvetica, Arial, sans-serif;
+
+  --font-size-h1: 22px;
+  --line-height-h1: 26px;
+  --font-weight-h1: 400;
+  --letter-spacing-h1: 0;
+
+  --font-size-body: 14px;
+  --line-height-body: 20px;
+  --font-weight-body: 400;
+  --letter-spacing-body: 0;
+
+  --font-size-caption: 12px;
+  --line-height-caption: 16px;
+  --font-weight-caption: 400;
+  --letter-spacing-caption: 0;
+
+  --font-size-label: 12px;
+  --line-height-label: 16px;
+  --font-weight-label: 400;
+  --letter-spacing-label: 0;
+  --text-transform-label: uppercase;
+
+  --font-size-kpi-numeral: 22px;
+  --line-height-kpi-numeral: 26px;
+  --font-weight-kpi-numeral: 400;
+  --letter-spacing-kpi-numeral: 0;
+  --font-variant-numeric-kpi-numeral: tabular-nums;
+
+  /* ============================================================
+     MOTION (documented; not a Figma variable)
+     ============================================================ */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---- Site additions (not part of the design system file) ----
+   STK Bureau Sans isn't served by the design-system site; until the team supplies the files the stack falls
+   back to the site's trial Aeonik Pro, which is the closest grotesk on hand. */
+/* In the components layer, so Tailwind utilities (hidden, text sizes) can still override them. */
+@layer components {
+.gf-ds {
+  --font-family-base: 'STK Bureau Sans', 'Aeonik Pro', system-ui, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-content-primary);
+}
+.gf-ds .h1 { font-size: var(--font-size-h1); line-height: var(--line-height-h1); }
+.gf-ds .caption { font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.gf-ds .c-primary { color: var(--color-content-primary); }
+.gf-ds .c-secondary { color: var(--color-content-secondary); }
+.gf-ds .c-tertiary { color: var(--color-content-tertiary); }
+.gf-ds .card { background: var(--color-background-system); border: 1px solid var(--color-border-default); border-radius: var(--radius-large); }
+.gf-ds .hairline { border-color: var(--color-border-default); }
+.gf-ds .surface { background: var(--color-background-surface); }
+.gf-ds .icon-holder { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; flex-shrink: 0; border-radius: var(--radius-medium); background: var(--color-background-surface); color: var(--color-content-secondary); }
+.gf-ds .tag { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 6px; border-radius: var(--radius-xsmall); font-size: 12px; line-height: 16px; white-space: nowrap; flex-shrink: 0; }
+.gf-ds .tag-accent { color: var(--color-content-accent-subtle); background: var(--color-background-accent-subtle); }
+.gf-ds .tag-positive { color: var(--color-content-positive-subtle); background: var(--color-background-positive-subtle); }
+.gf-ds .tag-attention { color: var(--color-content-attention-subtle); background: var(--color-background-attention-subtle); }
+.gf-ds .tag-solid { color: var(--color-content-inverse); background: var(--color-brand-600); }
+.gf-ds .tag-negative { color: var(--color-content-negative-subtle); background: var(--color-background-negative-subtle); }
+.gf-ds .tag-neutral { color: var(--color-content-neutral-subtle); background: var(--color-background-surface); box-shadow: inset 0 0 0 1px var(--color-border-default); }
+.gf-ds .stage { background: var(--color-background-surface); }
+}
+
+/* Reduced motion: every animated piece of a design-system interface carries data-anim. */
+@media (prefers-reduced-motion: reduce) {
+  .gf-ds [data-anim] { transition: none !important; }
+}
+
+/* Step backgrounds: the warped colour layer drifts very slowly so the ribbons feel alive. Transform only,
+   so the SVG warp renders once and the compositor just moves it. Off under reduced motion. */
+@keyframes gf-drift {
+  0% { transform: translate3d(-2.5%, -1.5%, 0) scale(1.02) rotate(-0.8deg); }
+  100% { transform: translate3d(2.5%, 1.5%, 0) scale(1.07) rotate(0.8deg); }
+}
+.gf-ds .gf-drift { animation: gf-drift 28s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate; will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  .gf-ds .gf-drift { animation: none; }
+}
