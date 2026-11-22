@@ -6,8 +6,8 @@ import { HeroJourney } from "@/components/home/hero-journey";
 // Study (about 1822, public domain, Wikimedia Commons / Google Art Project), cropped to the slot and lightened
 // a little, edge to edge and as tall as the window under the nav (100svh minus the 65px header), no frame,
 // no rounding. Everything sits inside the sky, centred in the clear
-// blue above the cloud bank: the headline, "We walk the whole path with you.", one line saying what
-// GoFunnel does, and the button. The sky drifts
+// blue above the cloud bank: the headline, "We walk the whole path with you.", and the button (the line
+// under the headline was removed by the user). The sky drifts
 // very slowly (transform only, 60s there and back; still under reduced motion). The Command Center demo that
 // sat under the sky was removed by the user; the customer logos follow.
 
@@ -35,13 +35,7 @@ export function Hero() {
                 <br />
                 {hero.headline[1]}
               </h1>
-              <p
-                className="intro-rise mt-6 max-w-[44ch] text-balance text-[17px] leading-[1.5] text-ink sm:text-[19px]"
-                style={{ ["--delay" as string]: "80ms" }}
-              >
-                {hero.line}
-              </p>
-              <div className="intro-rise mt-8" style={{ ["--delay" as string]: "160ms" }}>
+              <div className="intro-rise mt-10" style={{ ["--delay" as string]: "80ms" }}>
                 <Link href={hero.primary.href} className="btn btn-lg btn-primary">
                   {hero.primary.label}
                 </Link>
